@@ -1,3 +1,46 @@
-h2{
-  color: red;
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center; 
+  align-items: center;    
+  font-family: Arial, sans-serif;
+    background-color: #DFC6FE;
+}
+
+.container {
+  text-align: center;
+}
+form{
+  display: flex;
+  flex-direction: column;
+  background-color: #A96CD5;
+  gap: 10px;
+   box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+   padding: 30px;
+   border-radius: 30px;
+   color: white;
+}
+label{
+  text-align: start;
+
+}
+input{
+  border-radius: 20px;
+  padding: 10px;
+}
+select{
+padding: 10px 40px 10px 10px; 
+  border-radius: 20px;
+}
+button  {
+  border-radius: 30px;
+  padding: 15px;
+  cursor: pointer;
+  color: white;
+    background-color: #6E49B0;
+
+}
+button:hover{
+  background-color: #6E49B0;
 }

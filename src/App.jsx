@@ -3,7 +3,22 @@ import "./App.css";
 export default function App() {
   return (
     <>
-      <h2>hello raect</h2>
+    <div className="container">
+      <h2>Pick Your Questions and Go!</h2>
+      <form>
+          <label>Number of Questions</label>
+    <input type="number" />
+
+    <label>Difficulty</label>
+    <select>
+      <option>Easy</option>
+      <option>Medium</option>
+      <option>Hard</option>
+    </select>
+
+    <button>Start Quiz</button>
+      </form>
+      </div>
     </>
   );
 }
