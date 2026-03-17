@@ -29,6 +29,13 @@ input{
   border-radius: 20px;
   padding: 10px;
 }
+.message {
+  margin: 4px 0 0;
+  font-size: 14px;
+  font-weight: 600;
+  text-align: left;
+  color: black;
+}
 select{
 padding: 10px 40px 10px 10px; 
   border-radius: 20px;
