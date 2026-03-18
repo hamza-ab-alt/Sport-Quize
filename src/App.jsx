@@ -4,8 +4,34 @@ import { useState } from "react";
 export default function App() {
   const [number, setNumber] = useState("");
   const [message, setMessage] = useState("");
+  const [difficulty, setDifuclty]=useState("easy")
+const [question, setquestion]=useState([])
+const [loading, setloading]=useState(false)
 
-  function handleChange(e) {
+
+async function handleStart(e) {
+  e.preventDefault(); // bach form mabghach treload page
+
+  if (Number(number) <= 0) {
+    setMessage("Please enter a number greater than 0");
+    return;
+  }
+
+  setloading(true);
+  try {
+    const res = await fetch(`https://opentdb.com/api.php?amount=${number}&difficulty=${difficulty}&type=multiple`);
+    const data = await res.json();
+    setquestion(data.results);
+  } catch (err) {
+    console.error(err);
+  }
+  setloading(false);
+}
+
+
+
+
+function handleChange(e) {
     const value = e.target.value;
     setNumber(value);
 
@@ -22,7 +48,7 @@ export default function App() {
     <>
       <div className="container">
         <h2>Pick Your Questions and Go!</h2>
-        <form>
+        <form onSubmit={handleStart}>
           <label>Number of Questions</label>
           <input
             value={number}
@@ -33,16 +59,25 @@ export default function App() {
           <p className="message">{message}</p>
 
           <label>Difficulty</label>
-          <select>
+          <select value={difficulty} onChange={(e)=> difficulty(e.target.value)}>
             <option>Easy</option>
             <option>Medium</option>
             <option>Hard</option>
           </select>
 
-          <button>Start Quiz</button>
+          <button type="submit">Start Quiz</button>
         </form>
-      </div>
-    </>
-  );
+        {loading && <div ><p>loading data ....</p><div className="spinner"></div></div>}
+
+{question.length > 0 && (
+  <ul>
+    {question.map((q, i) => (
+      <li key={i}>{q.question}</li>
+    ))}
+  </ul>
+  )
+  }
+  </div>
+</>)
 }
 // default function App()
