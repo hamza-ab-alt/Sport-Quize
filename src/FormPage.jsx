@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import QuizQestion from "./QuizQestion";
-
+import "./form.css"
 function FormPage() {
     const quizData = [
   {
