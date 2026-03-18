@@ -1,0 +1,86 @@
+body{
+  padding: 0px;
+  margin: 0px;
+}
+.UPFP{
+  background-color:#A15AD9;
+  height: 100px;
+  align-content: center;
+  border-radius: 0px 0px 15px 15px ;
+  div{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+.scoreP{
+  background-color: green;
+  border-radius: 20px;
+  width: 50px;
+  height: 10px;
+}
+.Scores{
+  display: flex;
+  flex-direction: column;
+  div{
+    height:11px;
+    margin-bottom: 5px;
+    display: flex;
+    gap: 20px;
+  }
+}
+.scoreN{
+  background-color:red;
+  width: 50px;
+  height: 10px;
+  border-radius: 20px;
+}
+.QestionP{
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.Timer{
+  background-color: black;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  color: white;
+  font-size: 20px;
+}
+.qesP{
+  margin-top: 30px;
+  background-color: #A15AD9;
+  height: 100px;
+  text-align: center;
+  align-content: center;
+  margin-inline: 20%;
+  padding: 30px;
+  border-radius: 40px;
+  color: white;
+  font-size: 20px;
+}
+.choixQ{
+  list-style: none;
+  align-items: center;
+}
+.bodyQ{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  li{
+    margin-block:20px;
+    button{
+      width: 400px;
+      padding-block: 8px;
+      border-radius: 20px;
+      border: 1px solid white;
+      background-color: #A15AD9;
+      color: white;
+
+    }
+  }
+}
