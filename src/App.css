@@ -1,0 +1,137 @@
+.result-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: all 0.3s ease;
+}
+
+.result-card {
+  background: white;
+  width: 320px;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.result-title {
+  background: linear-gradient(to right, rgb(203, 119, 203));
+  color: white;
+  padding: 8px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
+
+.score-box {
+  background: #e6ccff;
+  padding: 15px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.score-box h2 {
+  color: #ff66cc;
+}
+
+.score-box p {
+  font-weight: bold;
+  color: purple;
+}
+
+.score-value {
+  background: #d9b3ff;
+  padding: 5px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.label {
+  background: #e6ccff;
+  padding: 5px 10px;
+  border-radius: 8px;
+}
+
+.value {
+  padding: 5px 15px;
+  border-radius: 8px;
+  color: white;
+}
+
+.green {
+  background: #4caf50;
+}
+
+.red {
+  background: #f44336;
+}
+
+.btn {
+  background: #d9b3ff;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn.theme-toggle {
+  margin-bottom: 20px;
+}
+.result-container.dark {
+  background: #121212;
+}
+
+.result-container.dark .result-card {
+  background: #1e1e1e;
+}
+
+.result-container.dark .result-title {
+  background: linear-gradient(to right, #7b1fa2, #ba68c8);
+  color: white;
+}
+
+.result-container.dark .score-box {
+  background: #333;
+}
+
+.result-container.dark .score-box h2,
+.result-container.dark .score-box p,
+.result-container.dark .score-value,
+.result-container.dark .row .value {
+  color: #fff;
+}
+.result-container.dark .value.green {
+  background: #4caf50;
+}
+
+.result-container.dark .value.red {
+  background: #f44336;
+}
+
+.result-container.dark .btn {
+  background: #555;
+  color: white;
+}
+
+.btn.theme-toggle {
+  margin-bottom: 15px;
+  background: #d9b3ff;
+  color: #000;
+  width: 115px;
+
+}
+
+
+.result-container.dark .btn.theme-toggle {
+  background: #555;
+  color: white;
+}

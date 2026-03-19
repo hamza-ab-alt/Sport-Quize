@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import "./App.css";
+import { useLocation, useNavigate } from "react-router-dom";
 
-export default function Result({ score = 8, total = 20, correct = 15, wrong = 5 }) {
+export default function Result() {
   const [darkMode, setDarkMode] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const { scoreP = 0, scoreN = 0, total = 0 } = location.state || {};
 
   return (
     <div className={`result-container ${darkMode ? "dark" : ""}`}>
@@ -13,22 +18,25 @@ export default function Result({ score = 8, total = 20, correct = 15, wrong = 5 
         <div className="score-box">
           <h2>🎉 Congratulations 🎉</h2>
           <p>SCORE FINAL</p>
-          <div className="score-value">{score}/{total}</div>
+
+          <div className="score-value">{scoreP}/{total}</div>
         </div>
 
         <div className="row">
           <span className="label">Right Questions</span>
-          <span className="value green">{correct}</span>
+          <span className="value green">{scoreP}</span>
         </div>
 
         <div className="row">
           <span className="label">False Questions</span>
-          <span className="value red">{wrong}</span>
+          <span className="value red">{scoreN}</span>
         </div>
 
-        {/* زر Back و زر Dark Mode جنب بعضهم */}
         <div className="button-row">
-          <button className="btn">Back To Home</button>
+          <button className="btn" onClick={() => navigate("/")}>
+            Back To Home
+          </button>
+
           <button 
             className="btn theme-toggle"
             onClick={() => setDarkMode(!darkMode)}

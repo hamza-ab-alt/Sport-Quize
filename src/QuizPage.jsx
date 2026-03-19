@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import QuizQestion from "./QuizQestion";
 import "./quiz.css";
 
 function QuizPage() {
   const location = useLocation();
   const quizData = location.state?.questions || [];
+  const navigate = useNavigate();
 
   const [QuizValues, setQuizValues] = useState({
     timer: 6,
@@ -17,31 +18,44 @@ function QuizPage() {
     reponseN: [],
   });
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setQuizValues((prev) => {
-        if (prev.indice >= quizData.length - 1 && prev.timer <= 1) {
-          clearInterval(interval);
-          return prev;
-        }
-        if (prev.timer <= 0) {
-          return {
-            ...prev,
-            indice: prev.indice + 1,
-            timer: 6,
-            qestionN: prev.qestionN + 1,
-          };
-        }
+ useEffect(() => {
+  const interval = setInterval(() => {
+    setQuizValues((prev) => {
 
+      
+      if (prev.indice >= quizData.length - 1 && prev.timer <= 1) {
+        clearInterval(interval);
+
+        
+        navigate("/results", {
+          state: {
+            scoreP: prev.scoreP,
+            scoreN: prev.scoreN,
+            total: quizData.length,
+          },
+        });
+
+        return prev;
+      }
+
+      if (prev.timer <= 0) {
         return {
           ...prev,
-          timer: prev.timer - 1,
+          indice: prev.indice + 1,
+          timer: 6,
+          qestionN: prev.qestionN + 1,
         };
-      });
-    }, 1000);
+      }
 
-    return () => clearInterval(interval);
-  }, [quizData.length]);
+      return {
+        ...prev,
+        timer: prev.timer - 1,
+      };
+    });
+  }, 1000);
+
+  return () => clearInterval(interval);
+}, [quizData.length, navigate]);
 
   if (!quizData.length) {
     return <h2>No questions found. Go back and start quiz again.</h2>;
