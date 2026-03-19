@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./form.css"
 
 export default function FormPage() {
   const [number, setNumber] = useState("");
@@ -25,7 +26,6 @@ export default function FormPage() {
       );
       const data = await res.json();
 
-      // 👉 SEND DATA HERE
       navigate("/quiz", { state: { questions: data.results } });
 
     } catch (err) {

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import QuizQestion from "./QuizQestion";
-import "./form.css";
+import "./quiz.css";
 
 function QuizPage() {
   const location = useLocation();
@@ -20,12 +20,10 @@ function QuizPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setQuizValues((prev) => {
-        // stop when last question
         if (prev.indice >= quizData.length - 1 && prev.timer <= 1) {
           clearInterval(interval);
           return prev;
         }
-
         if (prev.timer <= 0) {
           return {
             ...prev,
@@ -45,7 +43,6 @@ function QuizPage() {
     return () => clearInterval(interval);
   }, [quizData.length]);
 
-  // ⚠️ Handle empty or refresh
   if (!quizData.length) {
     return <h2>No questions found. Go back and start quiz again.</h2>;
   }
